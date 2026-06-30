@@ -1,0 +1,4 @@
+4b7870243b0f8aa0f2d5b9b2c57b81cc68fe1d82acbd4725ac96353f3b983302  Ascora-ADE-1.1.0-amd64.deb
+afe7c4c04ecfef3b68294383a66b0f68413b700677ecc0ffb50da8014e1cb8b7  Ascora-ADE-1.1.0-x86_64.rpm
+479a258f51e3935c678fc156fe2172911fdcd097aac14f649de38444b2227aee  Ascora-ADE-1.1.0-x64.pacman
+7b13af10f03aa782eb63637baefadcac46f5e9e9a5c8ce58c24bec7dd159a573  Ascora-ADE-1.1.0-x86_64.AppImage
