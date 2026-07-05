@@ -1,0 +1,3 @@
+c258862f72d68a71d173da69b278052041fee2decdcba86ec1d9159158e497ac  Ascora-ADE-1.2.0-amd64.deb
+7153741aca1450c23c3daabda4d8a826d6fe5050b7d5ffbda8b91fb5ac55e60f  Ascora-ADE-1.2.0-x86_64.rpm
+879c5ee4ebd99b7f2b68420dce0f1da1cf53e8d44b79bc1bfba7602b7e5d17b0  Ascora-ADE-1.2.0-x64.pacman
