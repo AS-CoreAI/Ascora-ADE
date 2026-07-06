@@ -12,10 +12,10 @@ ready-to-run binaries and their checksums. The application and website source li
 in their own repositories under the [AS-CoreAI](https://github.com/AS-CoreAI) org.
 
 - **Live demo & downloads:** https://ade.ascoreai.com/
-- **Current version:** 1.2.0
+- **Current version:** 1.2.1
 - **Platforms:** Windows (x64), Linux (x64)
 
-## What's new in 1.2
+## What's new in 1.2.1
 
 - **Ascora WProvider — web-chat backend (Qwen + DeepSeek)** — drive `chat.qwen.ai`
   or `chat.deepseek.com` as an agent backend through a hidden browser: sign in once,
@@ -34,7 +34,7 @@ in their own repositories under the [AS-CoreAI](https://github.com/AS-CoreAI) or
 - **File & image attachments** — attach files to a prompt; they are imported into
   the workspace and exposed to the agent.
 
-See the full changelog in the [release notes](https://github.com/AS-CoreAI/Ascora-ADE/releases/tag/v1.2.0).
+See the full changelog in the [release notes](https://github.com/AS-CoreAI/Ascora-ADE/releases/tag/v1.2.1).
 
 ## Supported models — one agent, every backend
 
@@ -87,8 +87,8 @@ own choice.
 
 | File | Type | Notes |
 | --- | --- | --- |
-| [`Ascora-ADE-Setup-1.2.0.exe`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2/windows/Ascora-ADE-Setup-1.2.0.exe) | NSIS installer | Start-menu shortcut, choose install dir, uninstaller |
-| [`Ascora-ADE-Portable-1.2.0.exe`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2/windows/Ascora-ADE-Portable-1.2.0.exe) | Portable | Single `.exe`, no install — just run |
+| [`Ascora-ADE-Setup-1.2.1.exe`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.1/windows/Ascora-ADE-Setup-1.2.1.exe) | NSIS installer | Start-menu shortcut, choose install dir, uninstaller |
+| [`Ascora-ADE-Portable-1.2.1.exe`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.1/windows/Ascora-ADE-Portable-1.2.1.exe) | Portable | Single `.exe`, no install — just run |
 
 > **Not code-signed.** On first launch Windows SmartScreen shows an "unknown
 > publisher" warning — choose **More info → Run anyway**. A signing certificate
@@ -98,9 +98,9 @@ own choice.
 
 | File | Package | For |
 | --- | --- | --- |
-| [`Ascora-ADE-1.2.0-amd64.deb`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2/linux/Ascora-ADE-1.2.0-amd64.deb) | `.deb` | Ubuntu / Debian |
-| [`Ascora-ADE-1.2.0-x86_64.rpm`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2/linux/Ascora-ADE-1.2.0-x86_64.rpm) | `.rpm` | Fedora / CentOS / RHEL |
-| [`Ascora-ADE-1.2.0-x64.pacman`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2/linux/Ascora-ADE-1.2.0-x64.pacman) | `.pacman` | Arch |
+| [`Ascora-ADE-1.2.1-amd64.deb`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.1/linux/Ascora-ADE-1.2.1-amd64.deb) | `.deb` | Ubuntu / Debian |
+| [`Ascora-ADE-1.2.1-x86_64.rpm`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.1/linux/Ascora-ADE-1.2.1-x86_64.rpm) | `.rpm` | Fedora / CentOS / RHEL |
+| [`Ascora-ADE-1.2.1-x64.pacman`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.1/linux/Ascora-ADE-1.2.1-x64.pacman) | `.pacman` | Arch |
 
 > macOS builds are published on the [website](https://ade.ascoreai.com/).
 
@@ -112,13 +112,13 @@ own choice.
 
 ```bash
 # Debian / Ubuntu
-sudo apt install ./Ascora-ADE-1.2.0-amd64.deb
+sudo apt install ./Ascora-ADE-1.2.1-amd64.deb
 
 # Fedora / CentOS / RHEL
-sudo rpm -i Ascora-ADE-1.2.0-x86_64.rpm
+sudo rpm -i Ascora-ADE-1.2.1-x86_64.rpm
 
 # Arch
-sudo pacman -U Ascora-ADE-1.2.0-x64.pacman
+sudo pacman -U Ascora-ADE-1.2.1-x64.pacman
 ```
 
 ## Verify the download
@@ -132,7 +132,7 @@ sha256sum -c SHA256SUMS.txt
 
 ```powershell
 # Windows (PowerShell) — compare against the value in SHA256SUMS.txt
-Get-FileHash .\Ascora-ADE-Setup-1.2.0.exe -Algorithm SHA256
+Get-FileHash .\Ascora-ADE-Setup-1.2.1.exe -Algorithm SHA256
 ```
 
 ## Quick start
@@ -152,11 +152,12 @@ Get-FileHash .\Ascora-ADE-Setup-1.2.0.exe -Algorithm SHA256
 1.0/
 1.1/
 1.2/
+1.2.1/
 ├── windows/   # NSIS installer + portable .exe, SHA256SUMS
 └── linux/     # .deb / .rpm / .pacman packages, SHA256SUMS
 ```
 
-Each new release adds a version folder (e.g. `1.2/`) alongside the previous ones.
+Each new release adds a version folder (e.g. `1.2.1/`) alongside the previous ones.
 
 ## Build notes
 
