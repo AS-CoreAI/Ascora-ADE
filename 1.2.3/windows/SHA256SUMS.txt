@@ -1,0 +1,2 @@
+0602908077af8cf8a740637c618981ee102a5f33bfa54c2eff24179108ab011a *Ascora-ADE-Setup-1.2.3.exe
+b4fce8b3817869b339469b61a8d06a1d7891a8c329d7a65bc0cfc3ef780c2de5 *Ascora-ADE-Portable-1.2.3.exe

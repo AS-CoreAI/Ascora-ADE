@@ -12,29 +12,40 @@ ready-to-run binaries and their checksums. The application and website source li
 in their own repositories under the [AS-CoreAI](https://github.com/AS-CoreAI) org.
 
 - **Live demo & downloads:** https://ade.ascoreai.com/
-- **Current version:** 1.2.2
+- **Current version:** 1.2.3
 - **Platforms:** Windows (x64), Linux (x64)
 
-## What's new in 1.2.2
+## What's new in 1.2.3
 
-- **Reopened CLI chats resume their server-side session** — Codex, Copilot, Claude,
-  Gemini, and GLM chats now continue their existing agent session when reopened
-  instead of starting fresh.
-- **Sign-in detection for Alice, Mistral, and ChatGPT is now accurate** — the
-  sign-in window stays open until you're actually logged in instead of closing the
-  moment the page shows a composer; Mistral's check no longer depends on the
-  interface language (which rotates between Russian, Ukrainian, German, and
-  English across sessions).
-- **Alice replies are captured again** after a Yandex UI redesign changed the chat
-  markup the reply capture relied on.
-- **Copilot replies are no longer duplicated or garbled** in the chat.
-- **Clearer Claude permission-mode labels** — Plan mode / Manual / Edit
-  automatically / Auto mode, localized in English and Russian.
-- **WProvider is more robust** — page checks can no longer hang indefinitely on a
-  stuck provider page, and sign-in checks only probe the currently selected
-  service instead of re-verifying every one on each chat switch.
+- **Blueprint automation studio** — build project-independent multi-agent
+  workflows on a visual node graph with conditional routing, bounded Repeat
+  loops, notes, scheduled runs, Telegram delivery, webhooks, and a shared
+  Blueprint Hub chat.
+- **Agent mode for Blueprints** — agents can iterate with workspace file/search/
+  edit/shell tools plus `web_search` and `web_fetch`; every tool call is preserved
+  in the execution audit trail.
+- **Attachment chips and image previews** — attach files or images without
+  cluttering the visible message with transport-only `@path` blocks.
+- **Codex and Claude account controls** — backend settings now show the authorized
+  account and provide working Sign in / Sign out actions.
+- **A proper Git diff experience** — Monaco syntax highlighting, old/new line
+  gutters, per-file addition/removal counts, binary badges, and a readable split
+  layout.
+- **More capable workspace search** — regex, glob, context, and case-sensitive
+  modes are available locally and over SSH.
+- **Richer analytics** — estimated API-equivalent cost, model share over time,
+  hourly activity heatmaps, localized charts, and expandable per-project model
+  usage.
+- **Task archive and workspace improvements** — browse and restore archived
+  tasks, rename workspace projects, and collapse or expand all workspaces at once.
+- **More languages and models** — Ukrainian, German, French, and Italian join
+  English and Russian; Codex presets now include `gpt-5.6-terra`,
+  `gpt-5.6-lunna`, and `gpt-5.6-sol`.
+- **Reliability fixes** — invalid scheduled graphs are surfaced, repeated steps
+  no longer show stale text, agent tool parsing is consistent, and WProvider
+  authentication/cancellation behavior is more robust across supported services.
 
-See the full changelog in the [release notes](https://github.com/AS-CoreAI/Ascora-ADE/releases/tag/v1.2.2).
+See the full changelog in the [release notes](https://github.com/AS-CoreAI/Ascora-ADE/releases/tag/v1.2.3).
 
 ## Supported models — one agent, every backend
 
@@ -45,10 +56,10 @@ own choice.
 | --- | --- | --- | --- |
 | **LM Studio** *(default)* | any local model you load (e.g. `qwen2.5-coder`) | OpenAI-compatible HTTP API (`http://localhost:1234/v1`), SSE streaming | Fully offline — your code never leaves the machine |
 | **Ollama** | any local model you pull | OpenAI-compatible HTTP API (`http://localhost:11434/v1`), SSE streaming | Fully offline; probed in the background like LM Studio |
-| **Ascora WProvider** | **Qwen** (`chat.qwen.ai`) · **DeepSeek** (`chat.deepseek.com`) | provider's own web chat via a hidden browser window | Sign in once in a visible window; per-service sign-in status; works over SSH |
+| **Ascora WProvider** | **Qwen · DeepSeek · Alice · Mistral · Claude · Grok · Gemini · ChatGPT** | provider's own web chat via a hidden browser window | Sign in once in a visible window; per-service sign-in status; works over SSH |
 | **OpenRouter** | any hosted model on OpenRouter | OpenAI-compatible cloud API with your API key | Optional cloud backend |
 | **Claude Code** | Claude **Opus · Sonnet · Haiku · Fable** | local `claude` CLI (auto-detected) | Selectable permission mode (e.g. accept-edits); aliases resolve to the newest model of each family |
-| **Codex** | OpenAI **GPT‑5.x** | local `codex` CLI (auto-detected) | Sandbox policy + reasoning-effort control |
+| **Codex** | OpenAI **GPT‑5.x**, including the **GPT‑5.6** presets | local `codex` CLI (auto-detected) | Sandbox policy + reasoning-effort control |
 | **Gemini CLI** | Google **Gemini** | local `gemini` CLI | Approval modes: plan / default / auto_edit / yolo; session resume |
 | **GLM / ZCode** | Zhipu **GLM** (e.g. `glm‑4.6`) | bundled ZCode agent (auto-detected) | Permission modes: plan / build / edit / yolo |
 
@@ -71,12 +82,15 @@ own choice.
   the commit message.
 - **SSH terminals** — drive remote hosts from the same agent loop (`ssh2`), with
   per-host saved chat history.
-- **Web-chat backends** — relay agent turns through Qwen or DeepSeek web chat via
-  the built-in Ascora WProvider (hidden browser, streaming, tool use).
+- **Web-chat backends** — relay agent turns through supported provider web chats
+  via the built-in Ascora WProvider (hidden browser, streaming, tool use).
+- **Blueprint automation** — compose visual multi-agent workflows with branches,
+  bounded loops, schedules, project tools, web access, and execution logs.
 - **Per-chat model pinning** — each chat keeps its own model/provider selection
   independently of the workspace default.
 - **Attachments** — add files and images to a prompt straight from the composer.
-- **Localized UI** — English and Russian, switchable from the left rail.
+- **Localized UI** — English, Russian, Ukrainian, German, French, and Italian,
+  switchable from the left rail.
 - **Live preview** — built-in server renders your HTML as you change it.
 - **Usage analytics** — track tokens, models, and tasks across every workspace.
 - **Dockable panels** — a VS Code-style layout you can split, stack, and re-dock.
@@ -87,8 +101,8 @@ own choice.
 
 | File | Type | Notes |
 | --- | --- | --- |
-| [`Ascora-ADE-Setup-1.2.2.exe`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.2/windows/Ascora-ADE-Setup-1.2.2.exe) | NSIS installer | Start-menu shortcut, choose install dir, uninstaller |
-| [`Ascora-ADE-Portable-1.2.2.exe`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.2/windows/Ascora-ADE-Portable-1.2.2.exe) | Portable | Single `.exe`, no install — just run |
+| [`Ascora-ADE-Setup-1.2.3.exe`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.3/windows/Ascora-ADE-Setup-1.2.3.exe) | NSIS installer | Start-menu shortcut, choose install dir, uninstaller |
+| [`Ascora-ADE-Portable-1.2.3.exe`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.3/windows/Ascora-ADE-Portable-1.2.3.exe) | Portable | Single `.exe`, no install — just run |
 
 > **Not code-signed.** On first launch Windows SmartScreen shows an "unknown
 > publisher" warning — choose **More info → Run anyway**. A signing certificate
@@ -98,9 +112,9 @@ own choice.
 
 | File | Package | For |
 | --- | --- | --- |
-| [`Ascora-ADE-1.2.2-amd64.deb`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.2/linux/Ascora-ADE-1.2.2-amd64.deb) | `.deb` | Ubuntu / Debian |
-| [`Ascora-ADE-1.2.2-x86_64.rpm`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.2/linux/Ascora-ADE-1.2.2-x86_64.rpm) | `.rpm` | Fedora / CentOS / RHEL |
-| [`Ascora-ADE-1.2.2-x64.pacman`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.2/linux/Ascora-ADE-1.2.2-x64.pacman) | `.pacman` | Arch |
+| [`Ascora-ADE-1.2.3-amd64.deb`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.3/linux/Ascora-ADE-1.2.3-amd64.deb) | `.deb` | Ubuntu / Debian |
+| [`Ascora-ADE-1.2.3-x86_64.rpm`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.3/linux/Ascora-ADE-1.2.3-x86_64.rpm) | `.rpm` | Fedora / CentOS / RHEL |
+| [`Ascora-ADE-1.2.3-x64.pacman`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.3/linux/Ascora-ADE-1.2.3-x64.pacman) | `.pacman` | Arch |
 
 > macOS builds are published on the [website](https://ade.ascoreai.com/).
 
@@ -112,13 +126,13 @@ own choice.
 
 ```bash
 # Debian / Ubuntu
-sudo apt install ./Ascora-ADE-1.2.2-amd64.deb
+sudo apt install ./Ascora-ADE-1.2.3-amd64.deb
 
 # Fedora / CentOS / RHEL
-sudo rpm -i Ascora-ADE-1.2.2-x86_64.rpm
+sudo rpm -i Ascora-ADE-1.2.3-x86_64.rpm
 
 # Arch
-sudo pacman -U Ascora-ADE-1.2.2-x64.pacman
+sudo pacman -U Ascora-ADE-1.2.3-x64.pacman
 ```
 
 ## Verify the download
@@ -132,7 +146,7 @@ sha256sum -c SHA256SUMS.txt
 
 ```powershell
 # Windows (PowerShell) — compare against the value in SHA256SUMS.txt
-Get-FileHash .\Ascora-ADE-Setup-1.2.2.exe -Algorithm SHA256
+Get-FileHash .\Ascora-ADE-Setup-1.2.3.exe -Algorithm SHA256
 ```
 
 ## Quick start
@@ -154,11 +168,12 @@ Get-FileHash .\Ascora-ADE-Setup-1.2.2.exe -Algorithm SHA256
 1.2/
 1.2.1/
 1.2.2/
+1.2.3/
 ├── windows/   # NSIS installer + portable .exe, SHA256SUMS
 └── linux/     # .deb / .rpm / .pacman packages, SHA256SUMS
 ```
 
-Each new release adds a version folder (e.g. `1.2.2/`) alongside the previous ones.
+Each new release adds a version folder (e.g. `1.2.3/`) alongside the previous ones.
 
 ## Build notes
 
