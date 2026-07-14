@@ -1,0 +1,3 @@
+a7cf2c817f39d3b0708ffd2adaa3a71c8e3d006ecf79fd2ec9da8e848194c32d *Ascora-ADE-1.2.4-amd64.deb
+edb2e7c4bafeb2602564525d2f28c4c575b5b5557f5ef6a36029074176344206 *Ascora-ADE-1.2.4-x64.pacman
+68b7ff93fd6d168eef1fbc759ba2222fea4044cb9517faae4929dc32b3a873df *Ascora-ADE-1.2.4-x86_64.rpm

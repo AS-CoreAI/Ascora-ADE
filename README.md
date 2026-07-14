@@ -12,40 +12,37 @@ ready-to-run binaries and their checksums. The application and website source li
 in their own repositories under the [AS-CoreAI](https://github.com/AS-CoreAI) org.
 
 - **Live demo & downloads:** https://ade.ascoreai.com/
-- **Current version:** 1.2.3
+- **Current version:** 1.2.4
 - **Platforms:** Windows (x64), Linux (x64)
 
-## What's new in 1.2.3
+## What's new in 1.2.4
 
-- **Blueprint automation studio** — build project-independent multi-agent
-  workflows on a visual node graph with conditional routing, bounded Repeat
-  loops, notes, scheduled runs, Telegram delivery, webhooks, and a shared
-  Blueprint Hub chat.
-- **Agent mode for Blueprints** — agents can iterate with workspace file/search/
-  edit/shell tools plus `web_search` and `web_fetch`; every tool call is preserved
-  in the execution audit trail.
-- **Attachment chips and image previews** — attach files or images without
-  cluttering the visible message with transport-only `@path` blocks.
-- **Codex and Claude account controls** — backend settings now show the authorized
-  account and provide working Sign in / Sign out actions.
-- **A proper Git diff experience** — Monaco syntax highlighting, old/new line
-  gutters, per-file addition/removal counts, binary badges, and a readable split
-  layout.
-- **More capable workspace search** — regex, glob, context, and case-sensitive
-  modes are available locally and over SSH.
-- **Richer analytics** — estimated API-equivalent cost, model share over time,
-  hourly activity heatmaps, localized charts, and expandable per-project model
-  usage.
-- **Task archive and workspace improvements** — browse and restore archived
-  tasks, rename workspace projects, and collapse or expand all workspaces at once.
-- **More languages and models** — Ukrainian, German, French, and Italian join
-  English and Russian; Codex presets now include `gpt-5.6-terra`,
-  `gpt-5.6-lunna`, and `gpt-5.6-sol`.
-- **Reliability fixes** — invalid scheduled graphs are surfaced, repeated steps
-  no longer show stale text, agent tool parsing is consistent, and WProvider
-  authentication/cancellation behavior is more robust across supported services.
+- **Reasoning you can read** — providers that expose their thinking (Grok's
+  thinking pane, DeepSeek's and Qwen's think stream) now stream it live into a
+  collapsible "Thought for 2m" block above the answer, persisted with the task.
+- **Grok's long thinking no longer times out** — turns stay alive while the
+  provider visibly reasons, instead of failing after 60 seconds with
+  "did not render an answer".
+- **Invisible web-chat automation** — real-browser chat turns and sign-in
+  status checks run in an off-screen browser window; only interactive sign-in
+  (including full Google OAuth in a real Chrome/Edge profile) opens visibly.
+- **WProvider status at a glance** — the models table now lists every web
+  service with an explicit Authorized / Not authorized state.
+- **`run_typescript` workspace tool** — a bounded one-shot TypeScript runtime
+  (define `main()` and it runs in the project root), available to local, SSH,
+  and Blueprint agent runs; Mistral `/work` tool calls are captured and
+  executed correctly.
+- **Live Preview launch target selector** — open the active HTML file inside
+  Ascora ADE or straight in the system browser from a split Go Live control.
+- **Restorable project archive** — remove a project from the workspace without
+  deleting files or history, and bring it back later with every chat intact.
+- **Markdown emphasis in agent replies** — bold, inline code, and fenced code
+  blocks render across every backend without trusting model HTML.
+- **Quality-of-life fixes** — localized Claude re-authentication with an inline
+  sign-in button, OpenRouter selectable during initial setup again, and a
+  proper Blueprint deletion confirmation dialog.
 
-See the full changelog in the [release notes](https://github.com/AS-CoreAI/Ascora-ADE/releases/tag/v1.2.3).
+See the full changelog in the [release notes](https://github.com/AS-CoreAI/Ascora-ADE/releases/tag/v1.2.4).
 
 ## Supported models — one agent, every backend
 
@@ -70,30 +67,71 @@ own choice.
 
 ## Features
 
+### The agent
+
 - **Agentic edit loop** — read → plan → edit → run → verify, in one place.
 - **Diffs before disk** — every change is shown as a side-by-side diff you can
   approve or reject; or switch to **Auto-apply** to let a task run end to end.
-- **Transparent reasoning** — collapsible thought process, streaming tool cards
-  (output, diffs, exit codes), and a live token + time counter.
+- **Transparent reasoning** — a collapsible thought process for every backend,
+  including the provider's own extended thinking (Grok, DeepSeek, Qwen) streamed
+  live into a "Thought for 2m" block, plus streaming tool cards (output, diffs,
+  exit codes) and a live token + time counter.
+- **A real tool belt** — list/read/write/edit files, ripgrep-style search
+  (regex, glob, context lines, case modes), one-shot shell commands, a bounded
+  `run_typescript` runtime, and read-only internet access via `web_search` and
+  `web_fetch` — locally and over SSH.
+- **Per-chat model pinning** — each chat keeps its own model/provider selection
+  independently of the workspace default.
+- **Attachments** — files and images attach as visual chips with previews, kept
+  out of the visible prompt text.
+
+### Backends
+
+- **Web-chat backends** — relay agent turns through eight provider web chats via
+  the built-in Ascora WProvider: hidden-browser automation (off-screen even when
+  a real Chrome/Edge is required), streaming, tool use, per-service sign-in
+  status, and an authorized-models table.
+- **Local, cloud, and CLI** — LM Studio and Ollama fully offline, OpenRouter by
+  API key, and the Codex / Claude Code / Gemini / GLM CLI agents with account
+  display and sign-in/sign-out from settings.
+
+### Workspace
+
 - **Monaco editor** — the editor that powers VS Code, bundled and fully offline.
 - **Integrated terminal** — run builds and tests without leaving the workspace
   (xterm.js + PTY).
-- **Git, with AI commits** — stage, diff, branch, and push, or let the agent write
-  the commit message.
+- **Git, with AI commits** — stage, diff, branch, and push, or let the agent
+  write the commit message; unified diffs render with Monaco syntax
+  highlighting, per-file `+`/`−` counts, and binary badges.
 - **SSH terminals** — drive remote hosts from the same agent loop (`ssh2`), with
   per-host saved chat history.
-- **Web-chat backends** — relay agent turns through supported provider web chats
-  via the built-in Ascora WProvider (hidden browser, streaming, tool use).
-- **Blueprint automation** — compose visual multi-agent workflows with branches,
-  bounded loops, schedules, project tools, web access, and execution logs.
-- **Per-chat model pinning** — each chat keeps its own model/provider selection
-  independently of the workspace default.
-- **Attachments** — add files and images to a prompt straight from the composer.
+- **Live preview** — built-in server renders your HTML as you change it, inside
+  Ascora ADE or in the system browser.
+- **Explorer with drag-and-drop** — move files and folders in the tree; rename
+  workspace projects in place.
+- **Dockable panels** — a VS Code-style layout you can split, stack, and re-dock.
+
+### Automation
+
+- **Blueprint studio** — project-independent scenarios on an Unreal-style node
+  graph: conditional routing, bounded Repeat loops, canvas notes, File / Command /
+  HTTP request actions, interval schedules, Telegram delivery, and webhooks.
+- **Multi-agent teams** — several named WProvider agents with independent roles
+  and sessions pass results to each other; agent mode gives every participant
+  the full tool loop with a persisted audit trail.
+- **Blueprint Hub** — connect one or several scenarios to a shared prompt and
+  watch their pipelines stream into one team chat.
+
+### Housekeeping
+
+- **Archives that restore** — soft-delete tasks or whole projects (with every
+  chat) and bring them back later; nothing on disk is deleted.
+- **Usage analytics** — tokens, models, sessions, estimated API-equivalent cost,
+  model share over time, and activity heatmaps across every workspace.
 - **Localized UI** — English, Russian, Ukrainian, German, French, and Italian,
   switchable from the left rail.
-- **Live preview** — built-in server renders your HTML as you change it.
-- **Usage analytics** — track tokens, models, and tasks across every workspace.
-- **Dockable panels** — a VS Code-style layout you can split, stack, and re-dock.
+- **In-app updates** — a title-bar badge appears when a newer release is
+  published, with the changelog one click away.
 
 ## Download
 
@@ -101,8 +139,8 @@ own choice.
 
 | File | Type | Notes |
 | --- | --- | --- |
-| [`Ascora-ADE-Setup-1.2.3.exe`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.3/windows/Ascora-ADE-Setup-1.2.3.exe) | NSIS installer | Start-menu shortcut, choose install dir, uninstaller |
-| [`Ascora-ADE-Portable-1.2.3.exe`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.3/windows/Ascora-ADE-Portable-1.2.3.exe) | Portable | Single `.exe`, no install — just run |
+| [`Ascora-ADE-Setup-1.2.4.exe`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.2.4/Ascora-ADE-Setup-1.2.4.exe) | NSIS installer | Start-menu shortcut, choose install dir, uninstaller |
+| [`Ascora-ADE-Portable-1.2.4.exe`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.2.4/Ascora-ADE-Portable-1.2.4.exe) | Portable | Single `.exe`, no install — just run |
 
 > **Not code-signed.** On first launch Windows SmartScreen shows an "unknown
 > publisher" warning — choose **More info → Run anyway**. A signing certificate
@@ -112,9 +150,9 @@ own choice.
 
 | File | Package | For |
 | --- | --- | --- |
-| [`Ascora-ADE-1.2.3-amd64.deb`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.3/linux/Ascora-ADE-1.2.3-amd64.deb) | `.deb` | Ubuntu / Debian |
-| [`Ascora-ADE-1.2.3-x86_64.rpm`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.3/linux/Ascora-ADE-1.2.3-x86_64.rpm) | `.rpm` | Fedora / CentOS / RHEL |
-| [`Ascora-ADE-1.2.3-x64.pacman`](https://github.com/AS-CoreAI/Ascora-ADE/raw/main/1.2.3/linux/Ascora-ADE-1.2.3-x64.pacman) | `.pacman` | Arch |
+| [`Ascora-ADE-1.2.4-amd64.deb`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.2.4/Ascora-ADE-1.2.4-amd64.deb) | `.deb` | Ubuntu / Debian |
+| [`Ascora-ADE-1.2.4-x86_64.rpm`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.2.4/Ascora-ADE-1.2.4-x86_64.rpm) | `.rpm` | Fedora / CentOS / RHEL |
+| [`Ascora-ADE-1.2.4-x64.pacman`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.2.4/Ascora-ADE-1.2.4-x64.pacman) | `.pacman` | Arch |
 
 > macOS builds are published on the [website](https://ade.ascoreai.com/).
 
@@ -126,13 +164,13 @@ own choice.
 
 ```bash
 # Debian / Ubuntu
-sudo apt install ./Ascora-ADE-1.2.3-amd64.deb
+sudo apt install ./Ascora-ADE-1.2.4-amd64.deb
 
 # Fedora / CentOS / RHEL
-sudo rpm -i Ascora-ADE-1.2.3-x86_64.rpm
+sudo rpm -i Ascora-ADE-1.2.4-x86_64.rpm
 
 # Arch
-sudo pacman -U Ascora-ADE-1.2.3-x64.pacman
+sudo pacman -U Ascora-ADE-1.2.4-x64.pacman
 ```
 
 ## Verify the download
@@ -146,7 +184,7 @@ sha256sum -c SHA256SUMS.txt
 
 ```powershell
 # Windows (PowerShell) — compare against the value in SHA256SUMS.txt
-Get-FileHash .\Ascora-ADE-Setup-1.2.3.exe -Algorithm SHA256
+Get-FileHash .\Ascora-ADE-Setup-1.2.4.exe -Algorithm SHA256
 ```
 
 ## Quick start
@@ -169,11 +207,16 @@ Get-FileHash .\Ascora-ADE-Setup-1.2.3.exe -Algorithm SHA256
 1.2.1/
 1.2.2/
 1.2.3/
-├── windows/   # NSIS installer + portable .exe, SHA256SUMS
+1.2.4/
+├── windows/   # SHA256SUMS (the .exe files live on the GitHub Release)
 └── linux/     # .deb / .rpm / .pacman packages, SHA256SUMS
 ```
 
-Each new release adds a version folder (e.g. `1.2.3/`) alongside the previous ones.
+Each new release adds a version folder (e.g. `1.2.4/`) alongside the previous
+ones. Starting with 1.2.4 the Windows executables exceed GitHub's 100 MB
+in-repo file limit, so they are attached to the corresponding
+[GitHub Release](https://github.com/AS-CoreAI/Ascora-ADE/releases) instead of
+being committed to the repository.
 
 ## Build notes
 
@@ -182,7 +225,7 @@ Binaries are produced from the app source with electron-vite + electron-builder
 TypeScript** (renderer bundled by Vite); persistence uses `better-sqlite3` with an
 atomic JSON-file fallback when native build tools are unavailable. electron-builder
 bundles the main process (`out/`) plus `ssh2`; the renderer libs (Monaco, React,
-etc.) are already bundled by Vite, keeping each Windows binary at ~86 MB.
+etc.) are already bundled by Vite, keeping each Windows binary at ~108 MB.
 
 ## Links
 
