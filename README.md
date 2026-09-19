@@ -225,8 +225,25 @@ atomic JSON-file fallback when native build tools are unavailable. electron-buil
 bundles the main process (`out/`) plus its runtime dependencies; the renderer
 libraries are bundled by Vite. Both platforms include the OmniRoute gateway,
 and Windows includes WireGuard and OpenVPN. Linux packages are built natively
-through WSL. Version 1.3.1 is built from source commit
-[`b7cb95f`](https://github.com/AS-CoreAI/AscoraADE/commit/b7cb95f).
+through WSL. Version 1.3.1 was built from original source commit `b7cb95f`.
+The source history was subsequently sanitized before public publication,
+which changed its commit identifiers. The current public source is available
+in [AS-CoreAI/AscoraADE](https://github.com/AS-CoreAI/AscoraADE).
+
+## Source licensing
+
+The original source is published by **ASCoreAI** under the
+[ASCoreAI Noncommercial Source License 1.0](https://github.com/AS-CoreAI/AscoraADE/blob/main/LICENSE.md).
+For 13 years per version, commercial use, including paid employment,
+freelance/client work, and internal business use, requires ASCoreAI's separate
+express written permission. Each version then automatically becomes available
+under MIT. This is a custom source-available license, not FSL or an OSI-approved
+open-source license.
+
+This source-publication change does not retroactively replace licenses already
+granted with the 1.3.1 installers or other earlier copies. Third-party components
+retain their own licenses. See the
+[licensing and publication record](https://github.com/AS-CoreAI/AscoraADE/blob/main/LICENSING.md).
 
 ## Links
 
