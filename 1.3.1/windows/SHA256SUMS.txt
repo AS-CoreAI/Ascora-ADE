@@ -1,0 +1,2 @@
+7d8bf913b830906b1d1b641fe58878e9781569e09e989c3f08e01de8b221f43c  Ascora-ADE-Portable-1.3.1.exe
+a6f6d3b25e9f2db9ddc2c823e50403b10f6e0f12929b2bd0e7f636cf8e752d55  Ascora-ADE-Setup-1.3.1.exe

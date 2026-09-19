@@ -1,0 +1,5 @@
+windows/*.exe
+linux/*.deb
+linux/*.rpm
+linux/*.pacman
+linux/*.AppImage

@@ -12,37 +12,31 @@ ready-to-run binaries and their checksums. The application and website source li
 in their own repositories under the [AS-CoreAI](https://github.com/AS-CoreAI) org.
 
 - **Live demo & downloads:** https://ade.ascoreai.com/
-- **Current version:** 1.2.4
+- **Current version:** 1.3.1
 - **Platforms:** Windows (x64), Linux (x64)
 
-## What's new in 1.2.4
+## What's new in 1.3.1
 
-- **Reasoning you can read** — providers that expose their thinking (Grok's
-  thinking pane, DeepSeek's and Qwen's think stream) now stream it live into a
-  collapsible "Thought for 2m" block above the answer, persisted with the task.
-- **Grok's long thinking no longer times out** — turns stay alive while the
-  provider visibly reasons, instead of failing after 60 seconds with
-  "did not render an answer".
-- **Invisible web-chat automation** — real-browser chat turns and sign-in
-  status checks run in an off-screen browser window; only interactive sign-in
-  (including full Google OAuth in a real Chrome/Edge profile) opens visibly.
-- **WProvider status at a glance** — the models table now lists every web
-  service with an explicit Authorized / Not authorized state.
-- **`run_typescript` workspace tool** — a bounded one-shot TypeScript runtime
-  (define `main()` and it runs in the project root), available to local, SSH,
-  and Blueprint agent runs; Mistral `/work` tool calls are captured and
-  executed correctly.
-- **Live Preview launch target selector** — open the active HTML file inside
-  Ascora ADE or straight in the system browser from a split Go Live control.
-- **Restorable project archive** — remove a project from the workspace without
-  deleting files or history, and bring it back later with every chat intact.
-- **Markdown emphasis in agent replies** — bold, inline code, and fenced code
-  blocks render across every backend without trusting model HTML.
-- **Quality-of-life fixes** — localized Claude re-authentication with an inline
-  sign-in button, OpenRouter selectable during initial setup again, and a
-  proper Blueprint deletion confirmation dialog.
+- **Full-page settings in eleven languages** — appearance, agent providers, CLI
+  installation and authentication, usage limits, and developer tools in one place.
+- **Unsloth local models** — configure a local server and API key, discover models,
+  stream replies, and track token usage alongside LM Studio and Ollama.
+- **CLI usage limits** — remaining allowances, reset dates, automatic refresh, and
+  independent checks for installed, signed-in Codex, Claude, and Antigravity accounts.
+- **Google Antigravity and Grok Build** — additional agent backends, account checks,
+  model selection, session resume, streaming, and tool calls. Antigravity's Gemini
+  models offer their supported reasoning levels separately from the model choice.
+- **Reliable Antigravity responses** — completed answers now arrive after reasoning,
+  transcript updates are recovered, and missing answers produce an explicit error.
+- **OmniRoute startup fixes** — background prewarming, direct server startup, and
+  built-in SQLite support; packaged gateway startup and persistence are verified.
+- **Compact Codex activity and terminal improvements** — grouped work logs,
+  a terminal shortcut, and persistent command history.
+- **Connection fixes** — local-provider switching and cancellation, VPN account
+  identity and traffic attribution, and loopback requests outside VPN interception.
 
-See the full changelog in the [release notes](https://github.com/AS-CoreAI/Ascora-ADE/releases/tag/v1.2.4).
+Read every change in the [full changelog](1.3.1/RELEASE_NOTES.md) or the
+[GitHub release](https://github.com/AS-CoreAI/Ascora-ADE/releases/tag/v1.3.1).
 
 ## Supported models — one agent, every backend
 
@@ -52,12 +46,16 @@ own choice.
 | Backend | Models | Connection | Notes |
 | --- | --- | --- | --- |
 | **LM Studio** *(default)* | any local model you load (e.g. `qwen2.5-coder`) | OpenAI-compatible HTTP API (`http://localhost:1234/v1`), SSE streaming | Fully offline — your code never leaves the machine |
+| **Unsloth** | local models served by Unsloth | OpenAI-compatible HTTP API with an API key | Model discovery, streaming, tool support, and per-chat model choice |
 | **Ollama** | any local model you pull | OpenAI-compatible HTTP API (`http://localhost:11434/v1`), SSE streaming | Fully offline; probed in the background like LM Studio |
 | **Ascora WProvider** | **Qwen · DeepSeek · Alice · Mistral · Claude · Grok · Gemini · ChatGPT** | provider's own web chat via a hidden browser window | Sign in once in a visible window; per-service sign-in status; works over SSH |
 | **OpenRouter** | any hosted model on OpenRouter | OpenAI-compatible cloud API with your API key | Optional cloud backend |
 | **Claude Code** | Claude **Opus · Sonnet · Haiku · Fable** | local `claude` CLI (auto-detected) | Selectable permission mode (e.g. accept-edits); aliases resolve to the newest model of each family |
 | **Codex** | OpenAI **GPT‑5.x**, including the **GPT‑5.6** presets | local `codex` CLI (auto-detected) | Sandbox policy + reasoning-effort control |
 | **Gemini CLI** | Google **Gemini** | local `gemini` CLI | Approval modes: plan / default / auto_edit / yolo; session resume |
+| **Grok Build** | xAI Grok | local `grok` CLI | Account sign-in, reasoning effort, permission modes, and session resume |
+| **Antigravity** | Gemini, Claude, and GPT models exposed by the local runtime | local Antigravity runtime / Python bridge | Model and reasoning selection, quotas, streaming, and session resume |
+| **OmniRoute** | models from configured upstream providers | bundled local gateway | Provider catalog, routed chat, background startup, and usage tracking |
 | **GLM / ZCode** | Zhipu **GLM** (e.g. `glm‑4.6`) | bundled ZCode agent (auto-detected) | Permission modes: plan / build / edit / yolo |
 
 > **Bring your own model.** Run fully offline against a local LLM via LM Studio or
@@ -139,22 +137,20 @@ own choice.
 
 | File | Type | Notes |
 | --- | --- | --- |
-| [`Ascora-ADE-Setup-1.2.4.exe`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.2.4/Ascora-ADE-Setup-1.2.4.exe) | NSIS installer | Start-menu shortcut, choose install dir, uninstaller |
-| [`Ascora-ADE-Portable-1.2.4.exe`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.2.4/Ascora-ADE-Portable-1.2.4.exe) | Portable | Single `.exe`, no install — just run |
+| [`Ascora-ADE-Setup-1.3.1.exe`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.3.1/Ascora-ADE-Setup-1.3.1.exe) | NSIS installer | Start-menu shortcut, choose install dir, uninstaller |
+| [`Ascora-ADE-Portable-1.3.1.exe`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.3.1/Ascora-ADE-Portable-1.3.1.exe) | Portable | Single `.exe`, no install — just run |
 
-> **Not code-signed.** On first launch Windows SmartScreen shows an "unknown
-> publisher" warning — choose **More info → Run anyway**. A signing certificate
-> will remove this in a later release.
+> Windows packages use the same ASCore AI self-signed certificate as 1.3.0.
+> This signature does not imply public CA trust or Windows SmartScreen reputation.
 
 ### Linux (x64)
 
 | File | Package | For |
 | --- | --- | --- |
-| [`Ascora-ADE-1.2.4-amd64.deb`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.2.4/Ascora-ADE-1.2.4-amd64.deb) | `.deb` | Ubuntu / Debian |
-| [`Ascora-ADE-1.2.4-x86_64.rpm`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.2.4/Ascora-ADE-1.2.4-x86_64.rpm) | `.rpm` | Fedora / CentOS / RHEL |
-| [`Ascora-ADE-1.2.4-x64.pacman`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.2.4/Ascora-ADE-1.2.4-x64.pacman) | `.pacman` | Arch |
-
-> macOS builds are published on the [website](https://ade.ascoreai.com/).
+| [`Ascora-ADE-1.3.1-amd64.deb`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.3.1/Ascora-ADE-1.3.1-amd64.deb) | `.deb` | Ubuntu / Debian |
+| [`Ascora-ADE-1.3.1-x86_64.rpm`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.3.1/Ascora-ADE-1.3.1-x86_64.rpm) | `.rpm` | Fedora / CentOS / RHEL |
+| [`Ascora-ADE-1.3.1-x64.pacman`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.3.1/Ascora-ADE-1.3.1-x64.pacman) | `.pacman` | Arch |
+| [`Ascora-ADE-1.3.1-x86_64.AppImage`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.3.1/Ascora-ADE-1.3.1-x86_64.AppImage) | AppImage | Portable Linux application |
 
 ## Install
 
@@ -164,13 +160,17 @@ own choice.
 
 ```bash
 # Debian / Ubuntu
-sudo apt install ./Ascora-ADE-1.2.4-amd64.deb
+sudo apt install ./Ascora-ADE-1.3.1-amd64.deb
 
 # Fedora / CentOS / RHEL
-sudo rpm -i Ascora-ADE-1.2.4-x86_64.rpm
+sudo rpm -i Ascora-ADE-1.3.1-x86_64.rpm
 
 # Arch
-sudo pacman -U Ascora-ADE-1.2.4-x64.pacman
+sudo pacman -U Ascora-ADE-1.3.1-x64.pacman
+
+# AppImage
+chmod +x Ascora-ADE-1.3.1-x86_64.AppImage
+./Ascora-ADE-1.3.1-x86_64.AppImage
 ```
 
 ## Verify the download
@@ -184,7 +184,7 @@ sha256sum -c SHA256SUMS.txt
 
 ```powershell
 # Windows (PowerShell) — compare against the value in SHA256SUMS.txt
-Get-FileHash .\Ascora-ADE-Setup-1.2.4.exe -Algorithm SHA256
+Get-FileHash .\Ascora-ADE-Setup-1.3.1.exe -Algorithm SHA256
 ```
 
 ## Quick start
@@ -200,23 +200,21 @@ Get-FileHash .\Ascora-ADE-Setup-1.2.4.exe -Algorithm SHA256
 
 ## Repository layout
 
+Version folders retain release notes and platform checksums. For 1.3.1:
+
 ```
-1.0/
-1.1/
-1.2/
-1.2.1/
-1.2.2/
-1.2.3/
-1.2.4/
-├── windows/   # SHA256SUMS (the .exe files live on the GitHub Release)
-└── linux/     # .deb / .rpm / .pacman packages, SHA256SUMS
+1.3.1/
+├── RELEASE_NOTES.md
+├── SHA256SUMS.txt
+├── windows/   # Setup, Portable, SHA256SUMS.txt
+└── linux/     # DEB, RPM, Pacman, AppImage, SHA256SUMS.txt
 ```
 
-Each new release adds a version folder (e.g. `1.2.4/`) alongside the previous
-ones. Starting with 1.2.4 the Windows executables exceed GitHub's 100 MB
-in-repo file limit, so they are attached to the corresponding
-[GitHub Release](https://github.com/AS-CoreAI/Ascora-ADE/releases) instead of
-being committed to the repository.
+The six application packages are attached to the corresponding
+[GitHub Release](https://github.com/AS-CoreAI/Ascora-ADE/releases/tag/v1.3.1).
+They exceed GitHub's 100 MB repository file limit and are not committed to Git.
+The combined release checksum file uses the downloadable asset names; each
+platform folder also has its own checksum file.
 
 ## Build notes
 
@@ -224,8 +222,11 @@ Binaries are produced from the app source with electron-vite + electron-builder
 (`npm run dist:win`, `npm run dist:linux`). The app is **Electron + React +
 TypeScript** (renderer bundled by Vite); persistence uses `better-sqlite3` with an
 atomic JSON-file fallback when native build tools are unavailable. electron-builder
-bundles the main process (`out/`) plus `ssh2`; the renderer libs (Monaco, React,
-etc.) are already bundled by Vite, keeping each Windows binary at ~108 MB.
+bundles the main process (`out/`) plus its runtime dependencies; the renderer
+libraries are bundled by Vite. Both platforms include the OmniRoute gateway,
+and Windows includes WireGuard and OpenVPN. Linux packages are built natively
+through WSL. Version 1.3.1 is built from source commit
+[`b7cb95f`](https://github.com/AS-CoreAI/AscoraADE/commit/b7cb95f).
 
 ## Links
 
