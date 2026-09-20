@@ -1,5 +1,11 @@
 # Ascora ADE
 
+> **Releases and source have moved to [AS-CoreAI/AscoraADE](https://github.com/AS-CoreAI/AscoraADE).**
+> Download the [latest release](https://github.com/AS-CoreAI/AscoraADE/releases/latest)
+> or browse [all releases](https://github.com/AS-CoreAI/AscoraADE/releases).
+> All future releases are published there. This repository retains historical
+> download URLs for compatibility; its files and folders have not been migrated.
+
 **Agentic Development Environment** — a cross-platform desktop IDE with an AI agent
 inside it. Describe a task in plain language; Ascora ADE reads your code, plans,
 edits files, runs commands, and shows a **diff before applying** — powered by the
@@ -7,9 +13,10 @@ models you run yourself. Local-first, offline-capable, and entirely in your cont
 
 ![Ascora ADE — agent editing a file with a reviewable diff](docs/screenshot.png)
 
-This repository is the **release / distribution channel**: it hosts the prebuilt,
-ready-to-run binaries and their checksums. The application and website source live
-in their own repositories under the [AS-CoreAI](https://github.com/AS-CoreAI) org.
+This repository is the **legacy release / distribution channel**. Its published
+releases, original binaries, descriptions, and checksum files have been copied to
+[AS-CoreAI/AscoraADE Releases](https://github.com/AS-CoreAI/AscoraADE/releases).
+The historical download links remain available here.
 
 - **Live demo & downloads:** https://ade.ascoreai.com/
 - **Current version:** 1.3.1
@@ -36,7 +43,7 @@ in their own repositories under the [AS-CoreAI](https://github.com/AS-CoreAI) or
   identity and traffic attribution, and loopback requests outside VPN interception.
 
 Read every change in the [full changelog](1.3.1/RELEASE_NOTES.md) or the
-[GitHub release](https://github.com/AS-CoreAI/Ascora-ADE/releases/tag/v1.3.1).
+[GitHub release](https://github.com/AS-CoreAI/AscoraADE/releases/tag/v1.3.1).
 
 ## Supported models — one agent, every backend
 
@@ -137,8 +144,8 @@ own choice.
 
 | File | Type | Notes |
 | --- | --- | --- |
-| [`Ascora-ADE-Setup-1.3.1.exe`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.3.1/Ascora-ADE-Setup-1.3.1.exe) | NSIS installer | Start-menu shortcut, choose install dir, uninstaller |
-| [`Ascora-ADE-Portable-1.3.1.exe`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.3.1/Ascora-ADE-Portable-1.3.1.exe) | Portable | Single `.exe`, no install — just run |
+| [`Ascora-ADE-Setup-1.3.1.exe`](https://github.com/AS-CoreAI/AscoraADE/releases/download/v1.3.1/Ascora-ADE-Setup-1.3.1.exe) | NSIS installer | Start-menu shortcut, choose install dir, uninstaller |
+| [`Ascora-ADE-Portable-1.3.1.exe`](https://github.com/AS-CoreAI/AscoraADE/releases/download/v1.3.1/Ascora-ADE-Portable-1.3.1.exe) | Portable | Single `.exe`, no install — just run |
 
 > Windows packages use the same ASCore AI self-signed certificate as 1.3.0.
 > This signature does not imply public CA trust or Windows SmartScreen reputation.
@@ -147,10 +154,10 @@ own choice.
 
 | File | Package | For |
 | --- | --- | --- |
-| [`Ascora-ADE-1.3.1-amd64.deb`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.3.1/Ascora-ADE-1.3.1-amd64.deb) | `.deb` | Ubuntu / Debian |
-| [`Ascora-ADE-1.3.1-x86_64.rpm`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.3.1/Ascora-ADE-1.3.1-x86_64.rpm) | `.rpm` | Fedora / CentOS / RHEL |
-| [`Ascora-ADE-1.3.1-x64.pacman`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.3.1/Ascora-ADE-1.3.1-x64.pacman) | `.pacman` | Arch |
-| [`Ascora-ADE-1.3.1-x86_64.AppImage`](https://github.com/AS-CoreAI/Ascora-ADE/releases/download/v1.3.1/Ascora-ADE-1.3.1-x86_64.AppImage) | AppImage | Portable Linux application |
+| [`Ascora-ADE-1.3.1-amd64.deb`](https://github.com/AS-CoreAI/AscoraADE/releases/download/v1.3.1/Ascora-ADE-1.3.1-amd64.deb) | `.deb` | Ubuntu / Debian |
+| [`Ascora-ADE-1.3.1-x86_64.rpm`](https://github.com/AS-CoreAI/AscoraADE/releases/download/v1.3.1/Ascora-ADE-1.3.1-x86_64.rpm) | `.rpm` | Fedora / CentOS / RHEL |
+| [`Ascora-ADE-1.3.1-x64.pacman`](https://github.com/AS-CoreAI/AscoraADE/releases/download/v1.3.1/Ascora-ADE-1.3.1-x64.pacman) | `.pacman` | Arch |
+| [`Ascora-ADE-1.3.1-x86_64.AppImage`](https://github.com/AS-CoreAI/AscoraADE/releases/download/v1.3.1/Ascora-ADE-1.3.1-x86_64.AppImage) | AppImage | Portable Linux application |
 
 ## Install
 
@@ -211,7 +218,7 @@ Version folders retain release notes and platform checksums. For 1.3.1:
 ```
 
 The six application packages are attached to the corresponding
-[GitHub Release](https://github.com/AS-CoreAI/Ascora-ADE/releases/tag/v1.3.1).
+[GitHub Release](https://github.com/AS-CoreAI/AscoraADE/releases/tag/v1.3.1).
 They exceed GitHub's 100 MB repository file limit and are not committed to Git.
 The combined release checksum file uses the downloadable asset names; each
 platform folder also has its own checksum file.
