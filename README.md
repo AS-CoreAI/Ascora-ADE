@@ -240,12 +240,16 @@ in [AS-CoreAI/AscoraADE](https://github.com/AS-CoreAI/AscoraADE).
 ## Source licensing
 
 The original source is published by **ASCoreAI** under the
-[ASCoreAI Noncommercial Source License 1.0](https://github.com/AS-CoreAI/AscoraADE/blob/main/LICENSE.md).
-For 13 years per version, commercial use, including paid employment,
-freelance/client work, and internal business use, requires ASCoreAI's separate
-express written permission. Each version then automatically becomes available
-under MIT. This is a custom source-available license, not FSL or an OSI-approved
-open-source license.
+[ASCoreAI Source License 1.1](https://github.com/AS-CoreAI/AscoraADE/blob/main/LICENSE.md).
+Paid employment, freelance/client work, internal business use, and startups
+are allowed without a separate license or payment to ASCoreAI. You may sell
+independent products created with Ascora and keep their source private.
+For 13 years per version, selling the IDE or its forks and providing paid or
+advertising-supported access to them require ASCoreAI's written permission.
+Each version then automatically becomes available under MIT. Revision 1.1
+also applies to source previously published under revision 1.0 without
+restarting that period. This is a custom source-available license, not FSL or
+an OSI-approved open-source license.
 
 This source-publication change does not retroactively replace licenses already
 granted with the 1.3.1 installers or other earlier copies. Third-party components
